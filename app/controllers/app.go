@@ -7,5 +7,10 @@ type App struct {
 }
 
 func (c App) Index() revel.Result {
-	return c.Render()
+	books, err := allBooks()
+	if err != nil {
+		panic(err)
+	}
+
+	return c.Render(books)
 }

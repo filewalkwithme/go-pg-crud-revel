@@ -1,28 +1,11 @@
 package app
 
 import (
-	"database/sql"
-	"fmt"
 
 	//The initialization of database hapens on init.go
 	_ "github.com/lib/pq"
 	"github.com/revel/revel"
 )
-
-//DB represents the database instance
-var DB *sql.DB
-
-//InitDB initializes DB connection
-func InitDB() {
-	connstring := fmt.Sprintf("user=%s password='%s' dbname=%s sslmode=disable", "postgres", "", "books_database")
-
-	var err error
-	DB, err = sql.Open("postgres", connstring)
-	if err != nil {
-		revel.INFO.Println("DB Error", err)
-	}
-	revel.INFO.Println("DB Connected")
-}
 
 func init() {
 	// Filters is the default set of global filters.
@@ -43,7 +26,7 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
-	revel.OnAppStart(InitDB)
+	//revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
 
