@@ -1,10 +1,11 @@
-# Routes
+Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
 module:testrunner
 
 GET     /                                       App.Index
+GET     /book.html                              App.Book
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

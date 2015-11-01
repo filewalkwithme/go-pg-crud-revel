@@ -12,7 +12,7 @@ var db *sql.DB
 
 //InitDB initializes DB connection
 func InitDB() {
-	connstring := fmt.Sprintf("user=%s password='%s' dbname=%s sslmode=disable", "postgres", "", "books_database")
+	connstring := fmt.Sprintf("user=%s password='%s' dbname=%s sslmode=disable", "postgres", "123456", "books_database")
 
 	var err error
 	db, err = sql.Open("postgres", connstring)
