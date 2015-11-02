@@ -90,3 +90,21 @@ func (c App) SaveBook() revel.Result {
 
 	return c.Redirect(routes.App.Index())
 }
+
+func (c App) DeleteBook() revel.Result {
+	idStr := c.Params.Get("id")
+
+	if len(idStr) > 0 {
+		id, err := strconv.Atoi(idStr)
+		if err != nil {
+			panic(err)
+		}
+
+		_, err = removeBook(id)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	return c.Redirect(routes.App.Index())
+}
